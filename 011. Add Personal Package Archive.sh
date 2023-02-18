@@ -1,0 +1,1 @@
+sudo apt-add-repository ppa:username/myawesomesoftware-1.0

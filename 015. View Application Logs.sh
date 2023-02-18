@@ -1,0 +1,1 @@
+grep Network /var/log/syslog
