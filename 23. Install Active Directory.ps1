@@ -46,11 +46,25 @@ $NewActiveDirectoryParameterHashTable = @{
 }
 Install-ADDSForest @NewActiveDirectoryParameterHashTable
 
+# Or powershell command
+
+Install-ADDSForest -DomainName 'rebeladmin.com' -CreateDnsDelegation:$false -DatabasePath 'C:\Windows\NTDS' -DomainMode '7' -DomainNetbiosName 'REBELADMIN' -ForestMode '7' -InstallDns:$true -LogPath 'C:\Windows\NTDS' -NoRebootOnCompletion:$True -SysvolPath 'C:\Windows\SYSVOL' -Force:$true -SafeModeAdministratorPassword $SecurePW
+
 # 7. Checking key AD and related services
 Get-Service -Name DNS, Netlogon
+Get-Service -Name ADWS, KDC, NetLogon, DNS
 
 # 8. Checking DNS zones
 Get-DnsServerZone
+
+# 8a. Checking Domain Controller
+Get-ADDomainController
+
+# 8b. Checking for Domain
+Get-ADDomain Reskit.Org
+
+# 9c. Check for Domain Controller shares the SYSVOL folder
+Get-SMBShare SYSVOL
 
 # 9. Restarting DC1 to complete promotion
 Restart-Computer -Force
