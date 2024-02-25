@@ -25,3 +25,6 @@ Resolve-DNSName -Name www.packt.com -Server SVR | Format-Table
 
 # 6. Check DNS Server Forwarder address
 Get-DnsServerForwarder
+
+# 7. view the properties of an SOA record
+Get-DnsServerResourceRecord -ZoneName "Reskit.Org" -RRType "SOA" | Select-Object -ExpandProperty RecordData
