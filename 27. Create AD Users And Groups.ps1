@@ -16,12 +16,17 @@ $NewUserHT.SamAccountName    = 'ThomasL'
 $NewUserHT.UserPrincipalName = 'thomasL@reskit.org'
 $NewUserHT.Name              = 'ThomasL'
 $NewUserHT.DisplayName       = 'Thomas Lee (IT)'
+$NewUserHT.GivenName         = 'Thomas Lee'
+$NewUserHT.Surname           = 'Thomas'
 New-ADUser @NewUserHT
 # Second user
 $NewUserHT.SamAccountName    = 'RLT'
 $NewUserHT.UserPrincipalName = 'rlt@reskit.org'
 $NewUserHT.Name              = 'Rebecca Tanner'
 $NewUserHT.DisplayName       = 'Rebecca Tanner (IT)'
+$NewUserHT.GivenName         = 'Rebecca Tanner'
+$NewUserHT.Surname           = 'Rebecca'
+# $NewUserHT.Path              = 'OU=Users,OU=Europe,DC=Reskit,DC=Org'
 New-ADUser @NewUserHT
 
 # 3. Creating an OU for IT

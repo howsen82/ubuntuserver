@@ -9,12 +9,15 @@ Get-ADComputer -Filter * -Server UKDC1.UK.Reskit.Org | Format-Table -Property Na
 
 # 3. Creating a new computer in the Reskit.Org domain
 $NCHT = @{
-    Name                   = 'Wolf' 
+    Name                   = 'Wolf'
+    SamAccountName         = 'Wolf'
     DNSHostName            = 'Wolf.Reskit.Org'
     Description            = 'One for Jerry'
     Path                   = 'OU=IT,DC=Reskit,DC=Org'
 }
 New-ADComputer @NCHT
+# Or
+New-ADComputer -Name "REBEL-PC-01" -SamAccountName "REBEL-PC-01" -Path "OU=IT,DC=Reskit,DC=Org"
 
 # 4. Creating Credential Object for SRV1
 $ASRV1    = 'SRV1\Administrator'
