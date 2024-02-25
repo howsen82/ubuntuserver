@@ -22,3 +22,6 @@ Get-DnsServerZone -Name packt.com
 
 # 5. Testing conditional forwarding
 Resolve-DNSName -Name www.packt.com -Server SVR | Format-Table
+
+# 6. Check DNS Server Forwarder address
+Get-DnsServerForwarder
