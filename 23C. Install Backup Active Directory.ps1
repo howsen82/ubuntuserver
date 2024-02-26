@@ -17,6 +17,8 @@
 # 2. Here, verify the static IP address allocation by using ipconfig /all
 # 3. Launch the PowerShell console as an administrator.
 
+# Join domain
+# DNS Server set to primary forest
 Install-WindowsFeature -Name AD-Domain-Services -IncludeManagementTools
 Install-ADDSDomainController -CreateDnsDelegation:$false -NoGlobalCatalog:$true -InstallDns:$true -DomainName "rebeladmin.com" -SiteName "Default-First-Site-Name" -ReplicationSourceDC "REBEL-SDC01.rebeladmin.com" -DatabasePath "C:\Windows\NTDS" -LogPath "C:\Windows\NTDS" -NoRebootOnCompletion:$true -SysvolPath "C:\Windows\SYSVOL" -Force:$true
 
@@ -73,8 +75,8 @@ Get-ADDomain | Select-Object InfrastructureMaster
 
 # Health check
 # Check what the additional roles installed in the domain controller are
-Get-WindowsFeature -ComputerName DC01 | Where Installed
-Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* | select DisplayName
+Get-WindowsFeature -ComputerName DC01 | Where-Object Installed
+Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* | Select-Object DisplayName
 > dcdiag /e
 > dcdiag /s:REBEL-SDC-03
 > dcdiag /test:replications /s:REBEL-SDC-03
