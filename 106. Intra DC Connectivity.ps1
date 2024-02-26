@@ -48,7 +48,7 @@ Get-ADObject -filter 'isdeleted -eq $true' -includeDeletedObjects
 Get-ADObject -Filter 'samaccountname -eq "dfrancis"' -IncludeDeletedObjects | Restore-ADObject
 
 # Install Backup Feature
-Install-WindowsFeature -Name Windows-Server-Backup –IncludeAllSubFeature
+Install-WindowsFeature -Name Windows-Server-Backup -IncludeAllSubFeature
 
 # Recover from Systemstate backup
 $ADBackup = Get-WBBackupSet | Select-Object -Last 1
