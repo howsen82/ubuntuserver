@@ -10,7 +10,7 @@ Get-ADUser -Server DC01.rebeladmin.com -Filter * -SearchBase "OU=Sales,DC=rebela
 Add-ADDSReadOnlyDomainControllerAccount -DomainControllerAccountName REBEL-RODC-01 -DomainName rebeladmin.com -DelegatedAdministratorAccountName "rebeladmindfrancis" -SiteName LondonSite
 
 # Install AD DS Role
-Install-WindowsFeature –Name AD-Domain-Services -IncludeManagementTools
+Install-WindowsFeature -Name AD-Domain-Services -IncludeManagementTools
 
 # Create RODC
 Import-Module ADDSDeployment 
