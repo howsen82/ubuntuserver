@@ -45,6 +45,7 @@ Get-ADGroupMember -Identity "Protected Users"
 
 # [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa]
 # "DisableRestrictedAdmin"=dword:00000000
+New-ItemProperty -path 'HKLM:\SYSTEM\CurrentControlSet\Control\Lsa' -Name 'DisableRestrictedAdmin' -Value '0' -PropertyType 'DWord' -Force | Out-Null
 
 > whoami
 > whoami /groups
