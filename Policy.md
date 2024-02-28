@@ -167,3 +167,9 @@
     **Policy Location: `Computer Configuration | Policies | Administrative Templates | Windows Components | Windows PowerShell | Turn on script execution`**
 
     **`Turn on script execution`**: Set it to **Enabled** and specified `Execution Policy` to **Allow local scripts and remote signed scripts**
+
+15. **Policy Name**: Powershell Remoting
+    
+    **Policy Location: `Computer Configuration | Policies | Administrative Templates | Windows Components | Windows Remote Management (WinRM) | WinRM Service`**
+
+    **`Allow remote server management through WinRM`**: Set it to **Enabled**
