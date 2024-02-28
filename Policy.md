@@ -173,3 +173,7 @@
     **Policy Location: `Computer Configuration | Policies | Administrative Templates | Windows Components | Windows Remote Management (WinRM) | WinRM Service`**
 
     **`Allow remote server management through WinRM`**: Set it to **Enabled**
+
+16. **Policy Name**: Server Firewall Rules
+    
+    **Policy Location: `Computer Configuration | Policies | Windows Settings | Security Settings | Windows Defender Firewall with Advanced Security | Windows Defender Firewall with Advanced Security`**
