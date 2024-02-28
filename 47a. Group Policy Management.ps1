@@ -23,3 +23,6 @@ Remove-GPLink -Name GPO-Test-B -Target "OU=Users,OU=Europe,DC=rebeladmin,DC=com"
 
 # Remove GPO
 Remove-GPO -Name GPO-Test-A
+
+# Update Group Policy client PC
+> gpupdate /force
