@@ -2,7 +2,7 @@
 
 # 1. Installing the iSCSI target feature on SS1
 Import-Module -Name ServerManager -WarningAction SilentlyContinue
-Install-WindowsFeature FS-iSCSITarget-Server
+Install-WindowsFeature FS-iSCSITarget-Server -IncludeManagementTools
 
 # 2. Restart the computer
 Restart-Computer
