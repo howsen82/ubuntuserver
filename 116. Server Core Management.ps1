@@ -4,6 +4,7 @@ Get-NetIPAddress
 Get-NetIPInterface
 
 # Configure IP Address
+Set-NetIPAddress
 New-NetIPAddress -InterfaceIndex 4 -IPAddress 10.10.10.12 -PrefixLength 24 -DefaultGateway 10.10.10.1
 Set-DNSClientServerAddress -InterfaceIndex 4 -ServerAddresses 10.10.10.10, 10.10.10.11
 Get-NetIPConfiguration
