@@ -1,0 +1,3 @@
+Invoke-WebRequest -Uri https://github.com/microsoft/terminal/releases/download/v1.20.10572.0/Microsoft.WindowsTerminalPreview_1.20.10572.0_8wekyb3d8bbwe.msixbundle -outfile Microsoft.WindowsTerminal_Win10_1.20.10572.0_8wekyb3d8bbwe.msixbundle
+Add-AppxPackage -Path .\Microsoft.WindowsTerminal_Win10_1.20.10572.0_8wekyb3d8bbwe.msixbundle
+Add-AppxPackage -Path .\Microsoft.VCLibs.140.00.UWPDesktop_14.0.30704.0_x64__8wekyb3d8bbwe.appx
