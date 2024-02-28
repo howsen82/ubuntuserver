@@ -151,7 +151,7 @@
     
     **Policy Location: `Computer Configuration | Policies | Windows Settings | Security Settings | Local Policies | Security Options`**
 
-    **`Interactive logon: Machine inactivity limit`**: **Enabled** and specified to **900** seconds (15 minutes)
+    **`Interactive logon: Machine inactivity limit`**: Set it to **Enabled** and specified to **900** seconds (15 minutes)
 
 13. **Policy Name**: Enable Screen Saver
     
@@ -161,3 +161,9 @@
     **`Force specific screen saver`**: Set it to **Use this to define which screen saver you want to run**
     **`Screen saver timeout`**: Set it to **Enabled** and specified to **900** seconds (15 minutes)
     **`Password protect the screen saver`**: Set it to **Enabled**
+
+14. **Policy Name**: Powershell Policy
+    
+    **Policy Location: `Computer Configuration | Policies | Administrative Templates | Windows Components | Windows PowerShell | Turn on script execution`**
+
+    **`Turn on script execution`**: Set it to **Enabled** and specified `Execution Policy` to **Allow local scripts and remote signed scripts**
