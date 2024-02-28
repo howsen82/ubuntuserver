@@ -128,3 +128,36 @@
    **Description**: In the Active Directory environment, we should not only consider protecting Active Directory accounts, but we also need to consider the protection of local administrator accounts. A compromised local administrator account will allow attackers to later move within the network and gain access to more privileged Active Directory accounts. In computers, we have a default administrator account called Administrator. If we can change the name of this account, it will be slightly difficult for attackers to guess the user name of the local account. We can change the default name of the account by using Group Policy.
 
    **`Accounts: Rename administrator account`**: By using this policy setting, we can rename the administrator account. To enable this policy setting, click on `Define this policy setting` and then specify the new name for the administrator account. As a best practice, do not use a name that can be easily guessed, such as *Admin* or *LocalAdmin*.
+
+9. **Policy Name**: Adding Trusted Sites
+    
+   **Policy Location: `Computer Configuration | Policies | Administrative Templates | Windows Components | Internet Explorer | Internet Control Panel | Security Page`**
+
+   **`Site to Zone Assignment List`**: Set it to **Enabled**
+
+10. **Policy Name**: Preset Wallpaper
+    
+    **Policy Location: `User Configuration | Policies | Administrative Templates | Desktop | Desktop`**
+
+    **`Desktop Wallpaper`**: Set it to **Enabled**, select wallpaper path bring used.
+
+11. **Policy Name**: Prevent shut down of system
+    
+    **Policy Location: `Computer Configuration (or User Configuration) | Policies | Administrative Templates | Start Menu and Taskbar`**
+
+    **`Remove and prevent access to the Shut Down, Restart, Sleep, and Hibernate commands`**: Set it to **Enabled**
+
+12. **Policy Name**: Interactive Logon
+    
+    **Policy Location: `Computer Configuration | Policies | Windows Settings | Security Settings | Local Policies | Security Options`**
+
+    **`Interactive logon: Machine inactivity limit`**: **Enabled** and specified to **900** seconds (15 minutes)
+
+13. **Policy Name**: Enable Screen Saver
+    
+    **Policy Location: `User Configuration | Policies | Administrative Templates | Control Panel | Personalization`**
+
+    **`Enable screen saver`**: Set it to **Enabled**
+    **`Force specific screen saver`**: Set it to **Use this to define which screen saver you want to run**
+    **`Screen saver timeout`**: Set it to **Enabled** and specified to **900** seconds (15 minutes)
+    **`Password protect the screen saver`**: Set it to **Enabled**
