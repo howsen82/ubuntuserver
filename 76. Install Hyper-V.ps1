@@ -54,3 +54,6 @@ $CheckVMHostSB = {
 }
 $Properties = 'Name', 'V*Path','Numasp*', 'Ena*','RES*'
 Invoke-Command -Scriptblock $CheckVMHostSB -Session $Sessions | Format-Table -Property $Properties
+
+# Enable Nested virtualization
+Set-VMProcessor -VMName 'HyperV1' -ExposeVirtualizationExtensions $true
