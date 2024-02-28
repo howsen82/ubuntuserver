@@ -27,3 +27,6 @@ Install-WindowsFeature ADRMS -IncludeAllSubFeature
 # and Online Responder (ADCS-Online-Cert). These subfeatures can
 # be added individually or together.
 Install-WindowsFeature AD-Certificate
+
+# Enable Active Directory Schema in MMC
+regsvr32 schmmgmt.dll
