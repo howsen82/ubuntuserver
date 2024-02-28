@@ -102,3 +102,45 @@ Remove-ADGroup "Sales Team"
 New-ADUser -Name "Inet User1" -GivenName "Inet" -Surname "User1" -SamAccountName "inetuser1" -UserPrincipalName "isuer1@rebeladmin.com" -AccountPassword (Read-Host -AsSecureString "Type Password for User") -Enabled $true -Path "OU=Users,OU=Europe,DC=rebeladmin,DC=com" -Type iNetOrgPerson
 # Convert iNetOrgPerson object to user object
 Set-ADUser "inetuser1" -Remove @{objectClass='inetOrgPerson'}
+
+# -------------------
+# User Group
+# Add [Development01] group
+New-ADGroup 'Development01' -GroupScope Global -GroupCategory Security -Description "Database Admin Group"
+Get-ADGroup -Identity 'Development01'
+
+# Add a member to a group
+Add-ADGroupMember -Identity Development01 -Members Serverworld
+Get-ADGroupMember -Identity Development01
+
+# Delete a member from a group, run like follows
+Remove-ADGroupMember -Identity Development01 -Members Serverworld
+
+# Delete a group, run like follows
+Remove-ADGroup -Identity Development01
+
+# -------------------
+# Organizational Unit
+# show current Organizational Unit list
+Get-ADOrganizationalUnit -Filter * | Format-Table DistinguishedName
+
+# for example, add [Development01] under the [Hiroshima]
+New-ADOrganizationalUnit Development01 -Path "OU=Hiroshima,DC=srv,DC=world" -ProtectedFromAccidentalDeletion $true
+
+# Delete OU
+Remove-ADOrganizationalUnit -Identity "OU=Development01,OU=Hiroshima,DC=srv,DC=world"
+
+# -------------------
+# Add Computer Accounts
+Get-ADComputer -Filter * | Format-Table DistinguishedName
+
+New-ADComputer -Name 'RX-0'
+
+# to specify OU
+New-ADComputer -Name 'RX-7' -Path "OU=Computers,OU=Hiroshima,DC=srv,DC=world"
+
+# if you'd like to add a specific user who can authenticate to AD when computer joins, set like follows
+> dsacls "CN=RX-0,CN=Computers,DC=srv,DC=world" /G FD3S01\Serverworld:CALCGRSDDTRC;
+
+# Delete computer accounts
+Remove-ADComputer -Identity "CN=RX-9,CN=Computers,DC=srv,DC=world"
