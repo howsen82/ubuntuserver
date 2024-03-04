@@ -47,7 +47,7 @@ $NewActiveDirectoryParameterHashTable = @{
 Install-ADDSForest @NewActiveDirectoryParameterHashTable
 
 # Or powershell command
-
+Import-Module ADDSDeployment
 Install-ADDSForest -DomainName 'rebeladmin.com' -CreateDnsDelegation:$false -DatabasePath 'C:\Windows\NTDS' -DomainMode '7' -DomainNetbiosName 'REBELADMIN' -ForestMode '7' -InstallDns:$true -LogPath 'C:\Windows\NTDS' -NoRebootOnCompletion:$True -SysvolPath 'C:\Windows\SYSVOL' -Force:$true -SafeModeAdministratorPassword $SecurePW
 
 # 7. Checking key AD and related services
