@@ -1,5 +1,5 @@
 # Install RDS and other services and tools
-Install-WindowsFeature Remote-Desktop-Services,RDS-Web-Access,RDS-RD-Server,RDS-Connection-Broker,RDS-Licensing -IncludeManagementTools
+Install-WindowsFeature Remote-Desktop-Services,RDS-Web-Access,RDS-RD-Server,RDS-Connection-Broker,RDS-Licensing,RDS-Gateway -IncludeManagementTools
 # restart computer to apply changes
 Restart-Computer -Force
 
