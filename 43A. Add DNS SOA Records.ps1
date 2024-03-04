@@ -1,5 +1,6 @@
 # Add an 'A' record
 Add-DnsServerResourceRecordA -Name 'blog' -ZoneName 'Reskit.Org' -IPv4Address '192.168.0.200'
+Add-DnsServerResourceRecordA -Name 'Intranet2' -IPv4Address '192.168.0.200' -ZoneName 'Reskit.Org' -ComputerName 'WinSrv2k22DC1'
 
 # Remove an 'A' record
 Remove-DnsServerResourceRecord -ZoneName 'Reskit.Org' -RRType 'A' -Name 'blog'

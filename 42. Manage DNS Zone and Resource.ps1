@@ -61,7 +61,7 @@ $SB = {Restart-Service -Name DNS}
 Invoke-Command -ComputerName DC2 -ScriptBlock $SB
 
 # 7. Checking results of RRs in Cookham.Net zone
-Get-DnsServerResourceRecord -ZoneName 'Cookham.Net' | ft -auto
+Get-DnsServerResourceRecord -ZoneName 'Cookham.Net' | Format-Table -auto
 
 # 8. Testing DNS resolution on DC2, DC1
 # Testing The CNAME from DC1
