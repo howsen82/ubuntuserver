@@ -2,6 +2,9 @@
 $InstallSB = {
     Install-WindowsFeature -Name Hyper-V -IncludeManagementTools
 }
+# Or
+Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
+
 #Invoke-Command -ComputerName HV1, HV2 -ScriptBlock $InstallSB
 Invoke-Command -ComputerName SVR -ScriptBlock $InstallSB
 
