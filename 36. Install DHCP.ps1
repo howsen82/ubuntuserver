@@ -5,8 +5,9 @@ Install-WindowsFeature -Name DHCP -IncludeManagementTools
 # 2. Adding DC1 to trusted DHCP servers and adding the 
 #    DHCP security group
 Import-Module -Name DHCPServer -WarningAction SilentlyContinue
+Add-DhcpServerInDC -DNSName 'Reskit.Org'
 Add-DhcpServerInDC
-Add-DHCPServerSecurityGroup 
+Add-DHCPServerSecurityGroup
 
 # 3. Letting DHCP know it is fully configured
 $DHCPHT = @{

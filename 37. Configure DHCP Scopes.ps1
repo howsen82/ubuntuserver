@@ -4,6 +4,7 @@ Import-Module DHCPServer -WarningAction SilentlyContinue
 # 2. Creating an IPv4 scope, for assigning DHCP IP Address range
 $SCOPEHT = @{
     Name         = 'ReskitOrg'
+    Description  = 'Clients IP addresses'
     StartRange   = '10.10.10.150'
     EndRange     = '10.10.10.199'
     SubnetMask   = '255.255.255.0'
@@ -11,8 +12,13 @@ $SCOPEHT = @{
 }
 Add-DhcpServerV4Scope @SCOPEHT
 
+Add-DhcpServerv4Scope -Name "Clients IP addresses" -StartRange '192.168.0.2' -EndRange '192.168.0.99' -SubnetMask '255.255.255.0' -Description 'Clients IP addresses' -State Active
+
+# Exclude DHCP range (Optional)
+Add-Dhcpserverv4ExclusionRange -ComputerName 'SVR.Reskit.Org' -ScopeId '192.168.0.0' -StartRange '192.168.0.10' -EndRange '192.168.0.20'
+
 # 3. Getting IPV4 scopes from the server
-Get-DhcpServerv4Scope -ComputerName SVR.Reskit.Org
+Get-DhcpServerv4Scope -ComputerName 'SVR.Reskit.Org'
 
 # 4. Setting server-wide option values
 $OPTION1HT = @{
